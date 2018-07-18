@@ -1,4 +1,4 @@
-# Kinect2 Viewer
+# IMUKin2
 
 ## Maintainer
 
