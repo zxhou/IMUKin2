@@ -17,16 +17,27 @@ This is based on [Kinect2 Viewer](https://github.com/code-iai/iai_kinect2/tree/m
 - OpenCV
 - PCL
 
+## Installation  
+1. Install [libfreenect2](https://github.com/OpenKinect/libfreenect2)  
+2. Install [iai_kinect2](https://github.com/code-iai/iai_kinect2)  
+3. Clone this repository into your catkin workspace and build it.    
+```
+cd ~/catkin_ws/src/
+git clone https://github.com/zxhou/IMUKin2.git
+cd ~/catkin_ws
+catkin_make -DCMAKE_BUILD_TYPE="Release"
+```
 ## Usage
-
+1. Check the serial port devices.`ls -l /dev/tty*`  
+2. For mpu6050, ttyUSB0 is available. `sudo chmod 666 /dev/ttyUSB0` (every time you boot the machine)  
+3. Run the program
 ```
 imageIMU [options]
   mode: 'qhd', 'hd', 'sd' or 'ir'
   visualization: 'image', 'cloud' or 'both'
-  saving path: /home/username/dataset/
+  saving path: ~/dataset/
 ```
-
-Example: `rosrun camera_imu imageIMU qhd image /home/user/dataset/`
+Example: `rosrun camera_imu imageIMU qhd image ~/dataset/`
 
 ## Key bindings
 
