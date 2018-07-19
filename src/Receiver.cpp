@@ -37,7 +37,6 @@
 #include <cv_bridge/cv_bridge.h>
 
 #include "Receiver.h"
-//#include "Mpu6050.h"
 
 Receiver::Receiver(const std::string &topicColor, const std::string &topicDepth, const bool useExact, const bool useCompressed, const std::string writePath)
   : topicColor(topicColor), topicDepth(topicDepth), useExact(useExact), useCompressed(useCompressed), 

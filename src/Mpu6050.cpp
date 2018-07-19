@@ -406,6 +406,6 @@ void MPU::saveImuData()
 	oss << tv.tv_sec << "." << std::setfill('0') << std::setw(6) << tv.tv_usec;
 	timeStamp = oss.str();
 	fs << timeStamp << " " << a[0] << " " << a[1] << " " << a[2] << " " << w[0] << " " << w[1] << " " << w[2] 
-			<< " " << Angle[0] << " " << Angle[1] << " " << Angle[2] << T << std::endl;
+			<< " " << Angle[0] << " " << Angle[1] << " " << Angle[2] << " " << T << std::endl;
 }
 

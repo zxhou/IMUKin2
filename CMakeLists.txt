@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(camera_imu CXX)
+project(imukin2 CXX)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBT_USE_DOUBLE_PRECISION -Wall")
 # Unused warnings
@@ -69,10 +69,10 @@ include_directories(include
   ${kinect2_bridge_INCLUDE_DIRS}
 )
 
-add_executable(imageIMU src/imageIMU.cpp
+add_executable(imukin2 src/imageIMU.cpp
 	src/Receiver.cpp
 	src/Mpu6050.cpp)
-target_link_libraries(imageIMU
+target_link_libraries(imukin2
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${PCL_LIBRARIES}

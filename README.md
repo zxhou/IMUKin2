@@ -37,12 +37,12 @@ imageIMU [options]
   visualization: 'image', 'cloud' or 'both'
   saving path: ~/dataset/
 ```
-Example: `rosrun camera_imu imageIMU qhd image ~/dataset/`
+Example: `rosrun imukin2 imukin2 qhd image ~/dataset/`
 
 ## Key bindings
 
 Image Windows:
 - `ESC`, `q`: Quit.
-- `b`: Save the RGB and depth image sequences.
+- `b`: Save the RGB and depth image sequences into `~/dataset/color` and `~/dataset/depth` respectively. Save IMU data into `~/dataset/imuData.txt`.
 - `e`: Stop saving.
 
