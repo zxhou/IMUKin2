@@ -378,84 +378,26 @@ void MPU::DecodeIMUData(unsigned char chrTemp[])
     switch(chrTemp[1])
     {
     case 0x51:
-    {
-        short suma = 0;
-        for(int i = 0;i<10;i++)
-        {
-            suma += short(chrTemp[i]);
-        }
-        if(suma != short(chrTemp[10]))
-        {
-            a[0] = 200;
-            a[1] = 200;
-            a[2] = 200;
-            T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
-        }
-        else
-        {
-            a[0] = (short(chrTemp[3]<<8|chrTemp[2]))/32768.0*16;
-            a[1] = (short(chrTemp[5]<<8|chrTemp[4]))/32768.0*16;
-            a[2] = (short(chrTemp[7]<<8|chrTemp[6]))/32768.0*16;
-            T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
-        }
-
+        a[0] = (short(chrTemp[3]<<8|chrTemp[2]))/32768.0*16;
+        a[1] = (short(chrTemp[5]<<8|chrTemp[4]))/32768.0*16;
+        a[2] = (short(chrTemp[7]<<8|chrTemp[6]))/32768.0*16;
+        T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
 //        printf("Acceleration = %4.3f\t%4.3f\t%4.3f\t\r\n",a[0],a[1],a[2]);
         break;
- 
-    }
-
     case 0x52:
-    {
-        short sumw = 0;
-        for(int i = 0;i<10;i++)
-        {
-            sumw += short(chrTemp[i]);
-        }
-        if(sumw != short(chrTemp[10]))
-        {
-            w[0] = 200;
-            w[1] = 200;
-            w[2] = 200;
-            T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
-        }
-        else
-        {
-            w[0] = (short(chrTemp[3]<<8|chrTemp[2]))/32768.0*2000;
-            w[1] = (short(chrTemp[5]<<8|chrTemp[4]))/32768.0*2000;
-            w[2] = (short(chrTemp[7]<<8|chrTemp[6]))/32768.0*2000;
-            T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
-        }
-
+        w[0] = (short(chrTemp[3]<<8|chrTemp[2]))/32768.0*2000;
+        w[1] = (short(chrTemp[5]<<8|chrTemp[4]))/32768.0*2000;
+        w[2] = (short(chrTemp[7]<<8|chrTemp[6]))/32768.0*2000;
+        T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
 //        printf("w = %4.3f\t%4.3f\t%4.3f\t\r\n",w[0],w[1],w[2]);
         break;
-    }
-
     case 0x53:
-    {
-        short sumAng = 0;
-        for(int i = 0;i<10;i++)
-        {
-            sumAng += short(chrTemp[i]);
-        }
-        if(sumAng != short(chrTemp[10]))
-        {
-            Angle[0] = 200;
-            Angle[1] = 200;
-            Angle[2] = 200;
-            T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
-        }
-        else
-        {
-            Angle[0] = (short(chrTemp[3]<<8|chrTemp[2]))/32768.0*180;
-            Angle[1] = (short(chrTemp[5]<<8|chrTemp[4]))/32768.0*180;
-            Angle[2] = (short(chrTemp[7]<<8|chrTemp[6]))/32768.0*180;
-            T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
-        }
-
+        Angle[0] = (short(chrTemp[3]<<8|chrTemp[2]))/32768.0*180;
+        Angle[1] = (short(chrTemp[5]<<8|chrTemp[4]))/32768.0*180;
+        Angle[2] = (short(chrTemp[7]<<8|chrTemp[6]))/32768.0*180;
+        T = (short(chrTemp[9]<<8|chrTemp[8]))/340.0 + 36.25;
 //        printf("Angle = %4.3f\t%4.3f\t%4.3f\tT=%4.2f\r\n",Angle[0],Angle[1],Angle[2],T);
         break;
-    }
-
     }
 }
 void MPU::saveImuData()
